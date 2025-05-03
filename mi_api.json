@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "b2ce928b-2978-44bd-9e4b-d46480813947",
+		"name": "Integraciones web Teclab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34112364"
+	},
+	"item": [
+		{
+			"name": "GET TRELLO CARDS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var JSONdata = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Coincidencia en Nombre\" , function(){\r",
+							"    pm.expect(JSONdata.name).to.eql(\"Tarjeta1\")\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}cards/{{Tarjeta1}}?key={{key}}&token={{token}}",
+					"host": [
+						"{{baseURL}}cards"
+					],
+					"path": [
+						"{{Tarjeta1}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				},
+				"description": "# Get Card Details\n\nThis endpoint retrieves the details of a specific card by its ID.\n\n## Request\n\n- Method: GET\n    \n- URL: {{baseURL}}cards/{{Tarjeta1}}\n    \n- Query Parameters:\n    \n    - key (string): The API key\n        \n    - token (string): The authentication token\n        \n\n## Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n- { \"id\": \"\", \"badges\": { \"attachments\": 0, \"fogbugz\": \"\", \"checkItems\": 0, \"checkItemsChecked\": 0, \"checkItemsEarliestDue\": null, \"comments\": 0, \"description\": true, \"due\": null, \"dueComplete\": true, \"lastUpdatedByAi\": true, \"start\": null, \"externalSource\": null, \"attachmentsByType\": { \"trello\": { \"board\": 0, \"card\": 0 } }, \"location\": true, \"votes\": 0, \"maliciousAttachments\": 0, \"viewingMemberVoted\": true, \"subscribed\": true }, \"checkItemStates\": \\[\\], \"closed\": true, \"dueComplete\": true, \"dateLastActivity\": \"\", \"desc\": \"\", \"descData\": { \"emoji\": {} }, \"due\": null, \"dueReminder\": null, \"email\": null, \"idBoard\": \"\", \"idChecklists\": \\[\\], \"idList\": \"\", \"idMembers\": \\[\\], \"idMembersVoted\": \\[\\], \"idShort\": 0, \"idAttachmentCover\": null, \"labels\": \\[\\], \"idLabels\": \\[\\], \"manualCoverAttachment\": true, \"name\": \"\", \"nodeId\": \"\", \"pinned\": true, \"pos\": 0, \"shortLink\": \"\", \"shortUrl\": \"\", \"start\": null, \"subscribed\": true, \"url\": \"\", \"cover\": { \"idAttachment\": null, \"color\": null, \"idUploadedBackground\": null, \"size\": \"\", \"brightness\": \"\", \"idPlugin\": null }, \"isTemplate\": true, \"cardRole\": null, \"mirrorSourceId\": null}"
+			},
+			"response": []
+		},
+		{
+			"name": "GET TRELLO BOARDS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}boards/{{Tablero1}}?key={{key}}&token={{token}}",
+					"host": [
+						"{{baseURL}}boards"
+					],
+					"path": [
+						"{{Tablero1}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
